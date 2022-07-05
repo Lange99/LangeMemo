@@ -21,5 +21,11 @@ async fn answer(
     message: Message,
     command: Command,
 ) -> Result<(), Box<dyn Error + Send + Sync>> {
+    match command {
+        Command::Start => {
+            bot.send_message(message.chat.id, Command::descriptions().to_string()).await?;
+        }
+       
+    }
     Ok(())
 }
